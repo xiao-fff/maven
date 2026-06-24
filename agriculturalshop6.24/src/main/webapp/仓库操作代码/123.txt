@@ -1,0 +1,47 @@
+强制允许合并（保留本地所有代码，推荐）:git pull maven main --allow-unrelated-histories
+
+
+# 当前文件夹初始化为git仓库
+git init
+
+# 添加远程仓库，别名maven
+git remote add maven https://github.com/xiao-fff/maven.git
+
+# 查看所有远程仓库
+git remote -v
+
+# 删除错误远程
+git remote remove maven
+
+# 修改远程仓库地址
+git remote set-url maven 新仓库地址
+
+本地提交操作
+# 查看文件状态（哪些新增/修改/删除）
+git status
+
+# 添加单个文件到暂存区
+git add 文件名.java
+# 添加所有修改、新增文件
+git add .
+# 只添加已修改文件，不包含新建文件
+git add -u
+
+# 提交暂存区代码，-m 写提交备注
+git commit -m "完成农产品注册功能"
+
+# 撤销最近一次提交（代码保留，回到暂存区）
+git reset --soft HEAD~1
+
+拉取远程代码
+# 基础拉取（合并模式）
+git pull maven main
+
+# 变基拉取（提交记录更整洁）
+git pull --rebase maven main
+
+# 本地远程历史无关时强制拉取（你刚遇到的报错）
+git pull maven main --allow-unrelated-histories
+
+# 只下载远程代码，不合并
+git fetch maven
