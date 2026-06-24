@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.agri.shop.mapper.MemberMapper">
+
+    <!-- 查询账号是否重复 -->
+    <select id="selectByMembername" resultType="Member">
+        select * from member where membername = #{membername}
+    </select>
+
+    <!-- 新增会员，字段和数据库一一对应 -->
+    <insert id="insertMember" parameterType="Member">
+        insert into member(membername,password,real_name,phone,email,address,create_time,member_level)
+        values(#{membername},#{password},#{realName},#{phone},#{email},#{address},#{createTime},#{memberLevel})
+    </insert>
+
+</mapper>
